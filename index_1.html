@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 Camry XLE Availability</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#0D0F12; --bg2:#14171C; --panel:#1A1E24; --line:#2A3038;
+  --text:#F1F2F4; --muted:#9BA3AE; --red:#EB0A1E; --red-dk:#B30816;
+  --built:#2FC46A; --transit:#F2B33D; --alloc:#6FA8FF;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",Arial,Helvetica,sans-serif;
+  --mono:"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+.lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:.04em}
+
+/* top bar */
+.bar{border-bottom:1px solid var(--line);background:var(--bg2)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+.brand{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.06em;text-transform:uppercase}
+.brand b{color:var(--red)}
+.bar a.call{font-size:14px;color:var(--muted);text-decoration:none}
+.bar a.call:hover{color:var(--text)}
+
+/* hero */
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--line);background:
+  radial-gradient(900px 400px at 85% -10%, rgba(235,10,30,.16), transparent 60%),var(--bg)}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(44px,7vw,84px);line-height:.95;margin:0 0 8px;letter-spacing:-.01em;text-transform:uppercase;text-wrap:balance}
+.hero h1 small{display:block;font-size:.22em;letter-spacing:.14em;color:var(--muted);font-weight:600;margin-bottom:10px}
+.hero p.lead{max-width:60ch;color:var(--muted);margin:10px 0 28px;font-size:17px}
+.range{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.range div{background:var(--panel);padding:16px 18px}
+.range .num{font-family:var(--display);font-weight:700;font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
+.range .num.red{color:var(--red)}
+.ladder{position:relative;height:38px;margin:26px 0 0}
+.ladder .rail{position:absolute;left:0;right:0;top:16px;height:2px;background:var(--line)}
+.ladder .tick{position:absolute;top:9px;width:2px;height:16px;background:var(--red);transform:translateX(-1px);opacity:.85}
+.ladder .end{position:absolute;top:26px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ladder .end.r{right:0}
+.pipeline{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}
+.pipeline a{text-decoration:none;display:flex;align-items:center;gap:8px}
+.pipeline a:hover{color:var(--text)}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot.built{background:var(--built)}.dot.transit{background:var(--transit)}.dot.alloc{background:var(--alloc)}
+
+/* groups */
+.group{padding:40px 0 8px}
+.group-head h2{font-family:var(--display);font-weight:700;font-size:30px;margin:0;display:flex;align-items:center;gap:14px;text-transform:uppercase;letter-spacing:.02em}
+.group-head .count{font-size:16px;color:var(--muted);font-family:var(--body);font-weight:500;text-transform:none;letter-spacing:0}
+.group-head p{color:var(--muted);margin:6px 0 20px;max-width:64ch}
+.chip{display:inline-block;padding:4px 12px;border-radius:4px;font-size:18px;letter-spacing:.06em;color:#0D0F12}
+.chip.built{background:var(--built)}.chip.transit{background:var(--transit)}.chip.alloc{background:var(--alloc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.unit{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;border-top:3px solid var(--line)}
+.unit.built{border-top-color:var(--built)}.unit.transit{border-top-color:var(--transit)}.unit.alloc{border-top-color:var(--alloc)}
+.unit-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.color{display:flex;gap:10px;align-items:flex-start}
+.swatch{width:22px;height:22px;border-radius:50%;flex:none;margin-top:3px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.ext{font-family:var(--display);font-weight:600;font-size:20px;line-height:1.1}
+.int{font-size:13px;color:var(--muted)}
+.price{text-align:right;flex:none}
+.msrp{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.vin{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:baseline}
+.vin .mono{color:var(--text)}
+.eq{list-style:none;margin:0;padding:10px 0 0;border-top:1px solid var(--line);font-size:14px;display:grid;gap:5px;flex:1}
+.eq li{display:flex;gap:10px;align-items:baseline}
+.eq .code{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:34px;flex:none}
+.eq .unk{color:var(--muted)}
+.reserve{display:block;text-align:center;background:var(--red);color:#fff;text-decoration:none;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;padding:11px;border-radius:5px;margin-top:4px}
+.reserve:hover{background:var(--red-dk)}
+.reserve:focus-visible,.pipeline a:focus-visible{outline:2px solid var(--transit);outline-offset:2px}
+
+/* offline */
+.offline{padding:80px 0;text-align:center;color:var(--muted);display:none}
+.offline strong{display:block;color:var(--text);font-family:var(--display);font-size:34px;text-transform:uppercase;margin-bottom:8px}
+body.off .sheet{display:none}body.off .offline{display:block}
+
+/* notes + footer */
+.notes{margin-top:48px;border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:14px;max-width:78ch}
+.notes strong{color:var(--text)}
+.notes p{margin:0 0 12px}
+.notes dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}
+.notes dt{color:var(--text);font-weight:600}
+.notes dd{margin:0}
+footer{border-top:1px solid var(--line);background:var(--bg2);padding:28px 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+footer .who{font-family:var(--display);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+footer .who span{display:block;font-family:var(--body);font-size:14px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:400}
+footer .cta{display:flex;gap:10px}
+footer .cta a{text-decoration:none;padding:10px 18px;border-radius:5px;font-family:var(--display);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:17px;border:1px solid var(--line)}
+footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
+@media print{
+  body{background:#fff;color:#111}
+  :root{--bg:#fff;--bg2:#fff;--panel:#fff;--line:#ccc;--text:#111;--muted:#555}
+  .reserve,.bar a.call,footer .cta{display:none}
+  .unit{break-inside:avoid}
+  .hero{background:#fff}
+}
+@media (prefers-reduced-motion:no-preference){.unit{transition:transform .15s}.unit:hover{transform:translateY(-2px)}}
+@media (max-width:520px){.unit-top{flex-direction:column}.price{text-align:left}}
+</style></head><body>
+
+<div class="bar"><div class="wrap">
+  <div class="brand">McGrath <b>Toyota</b></div>
+  <a class="call" href="tel:+13196311461">Josh Hicks · 319-631-1461</a>
+</div></div>
+
+<div class="offline"><div class="wrap">
+  <strong>Availability sheet temporarily offline</strong>
+  The list is being refreshed. Call or text Josh at 319-631-1461 for what's open right now.
+</div></div>
+
+<div class="sheet">
+<section class="hero"><div class="wrap">
+  <h1><small>McGrath Toyota of Iowa City · Availability Snapshot</small>2026 Camry XLE</h1>
+  <p class="lead">16 2026 Camry XLEs that are potentially available to McGrath Toyota, with the factory equipment and total MSRP on each one. Same trim on every one. What moves the price is paint, roof, and the accessory package it was built with.</p>
+  <div class="range">
+    <div><div class="lbl">Lowest priced</div><div class="num">$36,484</div></div>
+    <div><div class="lbl">Middle of the range</div><div class="num">$38,219</div></div>
+    <div><div class="lbl">Highest priced</div><div class="num red">$42,642</div></div>
+    <div><div class="lbl">Colors open</div><div class="num" style="font-size:22px;padding-top:6px">9 Supersonic Red<br>7 Reservoir Blue</div></div>
+  </div>
+  <div class="ladder"><div class="rail"></div><span class="tick" style="left:0.0%" title="$36,484"></span><span class="tick" style="left:9.2%" title="$37,049"></span><span class="tick" style="left:12.6%" title="$37,257"></span><span class="tick" style="left:13.9%" title="$37,338"></span><span class="tick" style="left:20.5%" title="$37,744"></span><span class="tick" style="left:23.2%" title="$37,913"></span><span class="tick" style="left:28.2%" title="$38,219"></span><span class="tick" style="left:28.2%" title="$38,219"></span><span class="tick" style="left:28.2%" title="$38,219"></span><span class="tick" style="left:42.6%" title="$39,109"></span><span class="tick" style="left:53.0%" title="$39,748"></span><span class="tick" style="left:57.6%" title="$40,034"></span><span class="tick" style="left:81.4%" title="$41,499"></span><span class="tick" style="left:87.3%" title="$41,857"></span><span class="tick" style="left:99.4%" title="$42,602"></span><span class="tick" style="left:100.0%" title="$42,642"></span><span class="end">$36,484</span><span class="end r">$42,642</span></div>
+  <div class="pipeline">
+    <a href="#built"><span class="dot built"></span>Built · 8</a>
+    <a href="#transit"><span class="dot transit"></span>In Transit · 3</a>
+    <a href="#alloc"><span class="dot alloc"></span>Scheduled for Production · 5</a>
+  </div>
+</div></section>
+
+<div class="wrap">
+
+<section class="group" id="built">
+  <header class="group-head"><h2><span class="chip built">Built</span> <span class="count">8 units</span></h2><p>Built and released from the factory. These are the units that can move fastest.</p></header>
+  <div class="grid">
+<article class="unit built">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#1F3F6E"></span>
+      <div><div class="ext">Reservoir Blue</div><div class="int">Black leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$36,484</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 1</span> <span>Built</span></div>
+  <ul class="eq"><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">59</span>Quick Charging Cable Package</li><li><span class="code">CST-PULSE</span>Pulse Safety</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%201%3A%20Reservoir%20Blue%20%2F%20Black%2C%20MSRP%20$36%2C484.">Reserve — Text Josh</a>
+</article>
+<article class="unit built">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Black leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$37,257</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 2</span> <span>Built</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3J</span>Blackout Emblem Overlays</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li><span class="code">MF</span>Mudguards</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%202%3A%20Supersonic%20Red%20%2F%20Black%2C%20MSRP%20$37%2C257.">Reserve — Text Josh</a>
+</article>
+<article class="unit built">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#1F3F6E"></span>
+      <div><div class="ext">Reservoir Blue</div><div class="int">Black leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$37,338</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 3</span> <span>Built</span></div>
+  <ul class="eq"><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3P</span>Paint Protection Film: Hood, Fenders, Mirror Backs and Door Cups</li><li><span class="code">59</span>Quick Charging Cable Package</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">MF</span>Mudguards</li><li><span class="code">WL</span>Alloy Wheel Locks: Chrome</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%203%3A%20Reservoir%20Blue%20%2F%20Black%2C%20MSRP%20$37%2C338.">Reserve — Text Josh</a>
+</article>
+<article class="unit built">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#1F3F6E"></span>
+      <div><div class="ext">Reservoir Blue</div><div class="int">Black leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$37,744</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 4</span> <span>Built</span></div>
+  <ul class="eq"><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%204%3A%20Reservoir%20Blue%20%2F%20Black%2C%20MSRP%20$37%2C744.">Reserve — Text Josh</a>
+</article>
+<article class="unit built">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Black leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$37,913</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 5</span> <span>Built</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">MF</span>Mudguards</li><li><span class="code">RF</span>Rear Spoiler</li><li><span class="code">WL</span>Alloy Wheel Locks: Chrome</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%205%3A%20Supersonic%20Red%20%2F%20Black%2C%20MSRP%20$37%2C913.">Reserve — Text Josh</a>
+</article>
+<article class="unit built">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#1F3F6E"></span>
+      <div><div class="ext">Reservoir Blue</div><div class="int">Boulder leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$39,748</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 6</span> <span>Built</span></div>
+  <ul class="eq"><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li class="unk"><span class="code">93</span>Accessory code 93</li><li class="unk"><span class="code">G0</span>Accessory code G0</li><li><span class="code">MF</span>Mudguards</li><li><span class="code">RF</span>Rear Spoiler</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%206%3A%20Reservoir%20Blue%20%2F%20Boulder%2C%20MSRP%20$39%2C748.">Reserve — Text Josh</a>
+</article>
+<article class="unit built">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#1F3F6E"></span>
+      <div><div class="ext">Reservoir Blue</div><div class="int">Boulder leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$40,034</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 7</span> <span>Built</span></div>
+  <ul class="eq"><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">59</span>Quick Charging Cable Package</li><li class="unk"><span class="code">93</span>Accessory code 93</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">MF</span>Mudguards</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%207%3A%20Reservoir%20Blue%20%2F%20Boulder%2C%20MSRP%20$40%2C034.">Reserve — Text Josh</a>
+</article>
+<article class="unit built">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Black leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$42,602</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 8</span> <span>Built</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">QP</span>Premium Plus Package</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li><span class="code">59</span>Quick Charging Cable Package</li><li><span class="code">D5</span>Door Edge Guards</li><li class="unk"><span class="code">G0</span>Accessory code G0</li><li><span class="code">G5</span>Illuminated Trunk Sill</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%208%3A%20Supersonic%20Red%20%2F%20Black%2C%20MSRP%20$42%2C602.">Reserve — Text Josh</a>
+</article></div>
+</section>
+<section class="group" id="transit">
+  <header class="group-head"><h2><span class="chip transit">In Transit</span> <span class="count">3 units</span></h2><p>Built and on the way from the plant. Arrival dates come from Toyota and can shift.</p></header>
+  <div class="grid">
+<article class="unit transit">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Boulder leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$37,049</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 9</span> <span>In Transit</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">MF</span>Mudguards</li><li><span class="code">CST-PULSE</span>Pulse Safety</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%209%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$37%2C049.">Reserve — Text Josh</a>
+</article>
+<article class="unit transit">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Boulder leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$38,219</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 10</span> <span>In Transit</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2010%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$38%2C219.">Reserve — Text Josh</a>
+</article>
+<article class="unit transit">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Black leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$38,219</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 11</span> <span>In Transit</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">CST-PULSE</span>Pulse Safety</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2011%3A%20Supersonic%20Red%20%2F%20Black%2C%20MSRP%20$38%2C219.">Reserve — Text Josh</a>
+</article></div>
+</section>
+<section class="group" id="alloc">
+  <header class="group-head"><h2><span class="chip alloc">Scheduled for Production</span> <span class="count">5 units</span></h2><p>Toyota has confirmed the build but the car does not exist yet. Priced and specced, waiting on a production slot.</p></header>
+  <div class="grid">
+<article class="unit alloc">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Boulder leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$38,219</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 12</span> <span>Scheduled for Production</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2012%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$38%2C219.">Reserve — Text Josh</a>
+</article>
+<article class="unit alloc">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Boulder leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$39,109</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 13</span> <span>Scheduled for Production</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li class="unk"><span class="code">93</span>Accessory code 93</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">MF</span>Mudguards</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2013%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$39%2C109.">Reserve — Text Josh</a>
+</article>
+<article class="unit alloc">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#1F3F6E"></span>
+      <div><div class="ext">Reservoir Blue</div><div class="int">Boulder leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$41,499</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 14</span> <span>Scheduled for Production</span></div>
+  <ul class="eq"><li><span class="code">QP</span>Premium Plus Package</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">MF</span>Mudguards</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2014%3A%20Reservoir%20Blue%20%2F%20Boulder%2C%20MSRP%20$41%2C499.">Reserve — Text Josh</a>
+</article>
+<article class="unit alloc">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#B3121F"></span>
+      <div><div class="ext">Supersonic Red</div><div class="int">Boulder leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$41,857</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 15</span> <span>Scheduled for Production</span></div>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">QP</span>Premium Plus Package</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3J</span>Blackout Emblem Overlays</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li class="unk"><span class="code">DK</span>Accessory code DK</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2015%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$41%2C857.">Reserve — Text Josh</a>
+</article>
+<article class="unit alloc">
+  <div class="unit-top">
+    <div class="color"><span class="swatch" style="background:#1F3F6E"></span>
+      <div><div class="ext">Reservoir Blue</div><div class="int">Black leather-trimmed interior</div></div></div>
+    <div class="price"><div class="msrp">$42,642</div><div class="lbl">Total MSRP</div></div>
+  </div>
+  <div class="vin"><span class="lbl">Unit 16</span> <span>Scheduled for Production</span></div>
+  <ul class="eq"><li><span class="code">QP</span>Premium Plus Package</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3J</span>Blackout Emblem Overlays</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li><span class="code">87</span>Toyota Multimedia Screen Protector</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">G5</span>Illuminated Trunk Sill</li><li><span class="code">RF</span>Rear Spoiler</li><li><span class="code">NANO</span>Nanocure Paint Protection</li></ul>
+  <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2016%3A%20Reservoir%20Blue%20%2F%20Black%2C%20MSRP%20$42%2C642.">Reserve — Text Josh</a>
+</article></div>
+</section>
+
+<div class="notes">
+  <p><strong>This is a snapshot in time and subject to change without notice.</strong> These units are located through Toyota's dealer network and are not in McGrath Toyota's inventory. None of them is confirmed available until Josh contacts the holding dealer and secures it, and that call is made once a purchase agreement and deposit are in place. Any unit can be sold by its dealer at any time before then.</p>
+  <p>Prices shown are Total MSRP as built, including factory-installed accessories, and exclude tax, title, license, and the $180 dealer documentation fee. Equipment is listed exactly as it appears on the factory build.</p>
+  <dl>
+    <dt>Built</dt><dd>Released from the factory. Fastest path to delivery once secured.</dd>
+    <dt>In Transit</dt><dd>On the way from the plant. Toyota's arrival estimate can shift.</dd>
+    <dt>Scheduled for Production</dt><dd>Confirmed build, not yet started. Unit numbers are for reference when you text Josh.</dd>
+    <dt>Premium Paint</dt><dd>Supersonic Red carries Toyota's premium paint charge, which is already included in the MSRP shown.</dd>
+  </dl>
+  <p style="margin-top:14px">Snapshot date: September 2, 2026.</p>
+</div>
+</div>
+</div>
+
+<footer><div class="wrap">
+  <div class="who">Josh Hicks<span>Sales Consultant · McGrath Toyota of Iowa City · 1445 Highway 1 West, Iowa City, IA 52246</span></div>
+  <div class="cta"><a class="primary" href="sms:+13196311461">Text Josh</a><a href="tel:+13196311461">Call 319-631-1461</a></div>
+</div></footer>
+
+<script>
+var SHEET_LIVE = true; // set to false to hide the units and show the offline message
+if(!SHEET_LIVE){document.body.classList.add('off');}
+</script>
+</body></html>
