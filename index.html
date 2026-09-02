@@ -74,6 +74,29 @@ a{color:inherit}
 .reserve:hover{background:var(--red-dk)}
 .reserve:focus-visible,.pipeline a:focus-visible{outline:2px solid var(--transit);outline-offset:2px}
 
+
+/* standard + packages */
+.spec{padding:44px 0 8px;border-top:1px solid var(--line);margin-top:40px}
+.spec h2{font-family:var(--display);font-weight:700;font-size:30px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.02em}
+.spec>.wrap>p,.spec p.intro{color:var(--muted);margin:0 0 22px;max-width:64ch}
+.std{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.std section{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+.std h3{font-family:var(--display);font-size:18px;font-weight:600;margin:0 0 8px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.std ul{list-style:none;margin:0;padding:0;font-size:14px;display:grid;gap:6px}
+.std li{padding-left:16px;position:relative}
+.std li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--red)}
+.pk{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.pk article{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.pk .pk-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.pk h3{font-family:var(--display);font-size:22px;font-weight:600;margin:0;line-height:1.1}
+.pk .pk-code{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.pk .pk-msrp{font-family:var(--display);font-weight:700;font-size:24px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pk ul{list-style:none;margin:0;padding:10px 0 0;border-top:1px solid var(--line);font-size:14px;display:grid;gap:5px}
+.pk li.inherits{color:var(--muted);font-style:italic}
+.pk .pk-note{font-size:13px;color:var(--muted)}
+.eq a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.eq a:hover{text-decoration-color:var(--red)}
+
 /* offline */
 .offline{padding:80px 0;text-align:center;color:var(--muted);display:none}
 .offline strong{display:block;color:var(--text);font-family:var(--display);font-size:34px;text-transform:uppercase;margin-bottom:8px}
@@ -129,6 +152,8 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <a href="#built"><span class="dot built"></span>Built · 8</a>
     <a href="#transit"><span class="dot transit"></span>In Transit · 3</a>
     <a href="#alloc"><span class="dot alloc"></span>Scheduled for Production · 5</a>
+    <a href="#standard">What every XLE includes ↓</a>
+    <a href="#packages">Options and packages ↓</a>
   </div>
 </div></section>
 
@@ -174,7 +199,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$37,744</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 4</span> <span>Built</span></div>
-  <ul class="eq"><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
+  <ul class="eq"><li><span class="code">PR</span><a href="#pk-PR">Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%204%3A%20Reservoir%20Blue%20%2F%20Black%2C%20MSRP%20$37%2C744.">Reserve — Text Josh</a>
 </article>
 <article class="unit built">
@@ -194,7 +219,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$39,748</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 6</span> <span>Built</span></div>
-  <ul class="eq"><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li class="unk"><span class="code">93</span>Accessory code 93</li><li class="unk"><span class="code">G0</span>Accessory code G0</li><li><span class="code">MF</span>Mudguards</li><li><span class="code">RF</span>Rear Spoiler</li></ul>
+  <ul class="eq"><li><span class="code">PR</span><a href="#pk-PR">Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">93</span>19-in. Dark Grey Metallic Wheels</li><li><span class="code">G0</span>Door Sill Protectors</li><li><span class="code">MF</span>Mudguards</li><li><span class="code">RF</span>Rear Spoiler</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%206%3A%20Reservoir%20Blue%20%2F%20Boulder%2C%20MSRP%20$39%2C748.">Reserve — Text Josh</a>
 </article>
 <article class="unit built">
@@ -204,7 +229,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$40,034</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 7</span> <span>Built</span></div>
-  <ul class="eq"><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">59</span>Quick Charging Cable Package</li><li class="unk"><span class="code">93</span>Accessory code 93</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">MF</span>Mudguards</li></ul>
+  <ul class="eq"><li><span class="code">PR</span><a href="#pk-PR">Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">59</span>Quick Charging Cable Package</li><li><span class="code">93</span>19-in. Dark Grey Metallic Wheels</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">MF</span>Mudguards</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%207%3A%20Reservoir%20Blue%20%2F%20Boulder%2C%20MSRP%20$40%2C034.">Reserve — Text Josh</a>
 </article>
 <article class="unit built">
@@ -214,7 +239,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$42,602</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 8</span> <span>Built</span></div>
-  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">QP</span>Premium Plus Package</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li><span class="code">59</span>Quick Charging Cable Package</li><li><span class="code">D5</span>Door Edge Guards</li><li class="unk"><span class="code">G0</span>Accessory code G0</li><li><span class="code">G5</span>Illuminated Trunk Sill</li></ul>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">QP</span><a href="#pk-QP">Premium Plus Package</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li><span class="code">59</span>Quick Charging Cable Package</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G0</span>Door Sill Protectors</li><li><span class="code">G5</span>Illuminated Trunk Sill</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%208%3A%20Supersonic%20Red%20%2F%20Black%2C%20MSRP%20$42%2C602.">Reserve — Text Josh</a>
 </article></div>
 </section>
@@ -238,7 +263,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$38,219</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 10</span> <span>In Transit</span></div>
-  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span><a href="#pk-PR">Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2010%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$38%2C219.">Reserve — Text Josh</a>
 </article>
 <article class="unit transit">
@@ -248,7 +273,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$38,219</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 11</span> <span>In Transit</span></div>
-  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">CST-PULSE</span>Pulse Safety</li></ul>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span><a href="#pk-PR">Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">CST-PULSE</span>Pulse Safety</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2011%3A%20Supersonic%20Red%20%2F%20Black%2C%20MSRP%20$38%2C219.">Reserve — Text Josh</a>
 </article></div>
 </section>
@@ -262,7 +287,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$38,219</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 12</span> <span>Scheduled for Production</span></div>
-  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span>Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">PR</span><a href="#pk-PR">Panoramic Glass Roof with Front Power Tilt/Slide Moonroof</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2012%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$38%2C219.">Reserve — Text Josh</a>
 </article>
 <article class="unit alloc">
@@ -272,7 +297,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$39,109</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 13</span> <span>Scheduled for Production</span></div>
-  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li class="unk"><span class="code">93</span>Accessory code 93</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">MF</span>Mudguards</li></ul>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">93</span>19-in. Dark Grey Metallic Wheels</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">MF</span>Mudguards</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2013%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$39%2C109.">Reserve — Text Josh</a>
 </article>
 <article class="unit alloc">
@@ -282,7 +307,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$41,499</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 14</span> <span>Scheduled for Production</span></div>
-  <ul class="eq"><li><span class="code">QP</span>Premium Plus Package</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">MF</span>Mudguards</li></ul>
+  <ul class="eq"><li><span class="code">QP</span><a href="#pk-QP">Premium Plus Package</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">MF</span>Mudguards</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2014%3A%20Reservoir%20Blue%20%2F%20Boulder%2C%20MSRP%20$41%2C499.">Reserve — Text Josh</a>
 </article>
 <article class="unit alloc">
@@ -292,7 +317,7 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$41,857</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 15</span> <span>Scheduled for Production</span></div>
-  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">QP</span>Premium Plus Package</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3J</span>Blackout Emblem Overlays</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li class="unk"><span class="code">DK</span>Accessory code DK</li></ul>
+  <ul class="eq"><li><span class="code">PC</span>Premium Paint</li><li><span class="code">QP</span><a href="#pk-QP">Premium Plus Package</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3J</span>Blackout Emblem Overlays</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li class="unk"><span class="code">DK</span>Accessory code DK</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2015%3A%20Supersonic%20Red%20%2F%20Boulder%2C%20MSRP%20$41%2C857.">Reserve — Text Josh</a>
 </article>
 <article class="unit alloc">
@@ -302,9 +327,93 @@ footer .cta a.primary{background:var(--red);border-color:var(--red);color:#fff}
     <div class="price"><div class="msrp">$42,642</div><div class="lbl">Total MSRP</div></div>
   </div>
   <div class="vin"><span class="lbl">Unit 16</span> <span>Scheduled for Production</span></div>
-  <ul class="eq"><li><span class="code">QP</span>Premium Plus Package</li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3J</span>Blackout Emblem Overlays</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li><span class="code">87</span>Toyota Multimedia Screen Protector</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">G5</span>Illuminated Trunk Sill</li><li><span class="code">RF</span>Rear Spoiler</li><li><span class="code">NANO</span>Nanocure Paint Protection</li></ul>
+  <ul class="eq"><li><span class="code">QP</span><a href="#pk-QP">Premium Plus Package</a></li><li><span class="code">2T</span>All-Weather Floor Liner Package</li><li><span class="code">3J</span>Blackout Emblem Overlays</li><li><span class="code">3Y</span>Rear Bumper Applique</li><li><span class="code">87</span>Toyota Multimedia Screen Protector</li><li><span class="code">D5</span>Door Edge Guards</li><li><span class="code">G4</span>Illuminated Door Sills</li><li><span class="code">G5</span>Illuminated Trunk Sill</li><li><span class="code">RF</span>Rear Spoiler</li><li><span class="code">NANO</span>Nanocure Paint Protection</li></ul>
   <a class="reserve" href="sms:+13196311461?&body=Hi%20Josh%2C%20I%27m%20interested%20in%20the%202026%20Camry%20XLE%2C%20unit%2016%3A%20Reservoir%20Blue%20%2F%20Black%2C%20MSRP%20$42%2C642.">Reserve — Text Josh</a>
 </article></div>
+</section>
+
+<section class="spec" id="standard">
+  <h2>What every 2026 Camry XLE includes</h2>
+  <p class="intro">Standard equipment on the XLE grade. Every unit on this page has all of this before any option or accessory is added.</p>
+  <div class="std">
+    <section><h3>Mechanical</h3><ul>
+      <li>Front-Wheel Drive (FWD)</li>
+      <li>Drive Mode Select (DMS) with Sport, Eco, Normal and EV modes</li>
+      <li>2.5-Liter, 4-cylinder DOHC 16-valve, Variable Valve Timing-intelligence (VVT-i) with Variable Valve Timing-intelligence by Electric motor (VVT-iE) on the intake side, 184 hp @ 6000 rpm, 163 lb.-ft. @ 3600–5200 rpm</li>
+    </ul></section>
+    <section><h3>Exterior</h3><ul>
+      <li>18-in. two-tone multi-spoke machined and black-finished wheels</li>
+      <li>Dual LED projector low beams</li>
+      <li>Dark metallic gray horizontal bar front grille</li>
+      <li>LED Daytime Running Lights (DRL)</li>
+      <li>Premium LED combination taillights</li>
+      <li>Chrome-finished window trim</li>
+    </ul></section>
+    <section><h3>Interior</h3><ul>
+      <li>12.3-in. digital gauge cluster</li>
+      <li>Dual zone automatic climate control with air filter, humidity sensor and rear-seat vents</li>
+      <li>Leather</li>
+      <li>Heated front seats</li>
+      <li>Leather-trimmed heated tilt/telescopic steering wheel</li>
+      <li>Qi-compatible wireless charging with charge indicator light</li>
+    </ul></section>
+    <section><h3>Audio Multimedia</h3><ul>
+      <li>12.3-in. Toyota Audio Multimedia touchscreen with USB-A media port, hands-free phone capability and music streaming via Bluetooth® wireless technology, SiriusXM® 3-month trial subscription</li>
+      <li>Wireless Android Auto™ compatibility</li>
+      <li>Wireless Apple CarPlay® compatibility</li>
+      <li>6-speaker audio system</li>
+    </ul></section>
+    <section><h3>Connected Services</h3><ul>
+      <li>Remote Connect</li>
+      <li>Safety Connect®</li>
+      <li>Service Connect</li>
+      <li>Drive Connect</li>
+      <li>Wi-Fi Connect</li>
+    </ul></section>
+    <section><h3>Safety / Convenience</h3><ul>
+      <li>Toyota Safety Sense™ 3.0 (TSS 3.0)</li>
+      <li>Blind Spot Monitor (BSM) with Rear Cross-Traffic Alert (RCTA) and Safe Exit Alert (SEA)</li>
+      <li>Eight airbags</li>
+    </ul></section>
+  </div>
+</section>
+
+<section class="spec" id="packages">
+  <h2>Factory options and packages</h2>
+  <p class="intro">These are the factory-installed options that change what a given XLE has beyond standard equipment. Each unit above lists which of these it was built with, by code. Package MSRPs are already included in each unit's Total MSRP.</p>
+  <div class="pk">
+    <article id="pk-PR">
+      <div class="pk-top"><div><h3>Panoramic glass roof with front power tilt/slide moonroof</h3><div class="pk-code">Code PR</div></div><div class="pk-msrp">$1,330</div></div>
+      <ul><li>Panoramic glass roof with front power tilt/slide moonroof (removal of overhead sunglasses storage)</li></ul>
+    </article>
+    <article id="pk-PM">
+      <div class="pk-top"><div><h3>Premium Package</h3><div class="pk-code">Code PM</div></div><div class="pk-msrp">$3,810</div></div>
+      <ul>
+        <li>Panoramic glass roof with front power tilt/slide moonroof (removal of overhead sunglasses storage)</li>
+        <li>9-speaker JBL® Premium Audio system</li>
+        <li>Ventilated front seats</li>
+        <li>10-in. Head Up Display (HUD)</li>
+        <li>Digital Key capability</li>
+        <li>Rain-sensing windshield wipers</li>
+        <li>Driver's seat and outer-mirror memory</li>
+      </ul>
+      <div class="pk-note">None of the units on this page were built with the Premium Package on its own; it is shown so the Premium Plus Package reads clearly.</div>
+    </article>
+    <article id="pk-QP">
+      <div class="pk-top"><div><h3>Premium Plus Package</h3><div class="pk-code">Code QP</div></div><div class="pk-msrp">$4,760</div></div>
+      <ul>
+        <li class="inherits">Everything in the Premium Package, plus:</li>
+        <li>Traffic Jam Assist (TJA)</li>
+        <li>Front Cross-Traffic Alert (FCTA)</li>
+        <li>Lane Change Assist (LCA)</li>
+        <li>Panoramic View Monitor</li>
+        <li>Front and Rear Parking Assist with Automatic Braking (PA w/AB)</li>
+        <li>Rear Cross-Traffic Braking (RCTB)</li>
+        <li>Driver Monitor Camera</li>
+      </ul>
+    </article>
+  </div>
+  <p class="intro" style="margin-top:18px">Premium Paint (code PC) applies to Supersonic Red. All other codes on a unit are dealer- or port-installed accessories: floor liners, door edge guards, mudguards, wheel locks, paint protection and similar.</p>
 </section>
 
 <div class="notes">
